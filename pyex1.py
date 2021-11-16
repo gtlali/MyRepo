@@ -1,19 +1,25 @@
-intList = [1,2,3,4,5,6,7,8,9] 
-squareList = [] 
+import tensorflow as tf
+print(tf.__version__)
 
-def square_me( x ):   
-    return x * x
+mnist = tf.keras.datasets.fashion_mnist
 
-#----- for loop---- iterating to method call to square.
-for i in intList:
-    print( square_me (i)); 
-    
-#-------------using method called pow----------
-for x in intList:
- squareList.append( pow( x, 2 ) ) 
-   
-print("printing the with pow method",list(squareList))
+(training_images, training_labels) ,  (test_images, test_labels) = mnist.load_data()
 
-#------------Same using Map method---------------
-squareList = map(square_me, intList);
-print("Print by Map:",list(squareList))
+training_images = training_images/255.0
+test_images = test_images/255.0
+
+model = tf.keras.models.Sequential([tf.keras.layers.Flatten(),
+                                    tf.keras.layers.Dense(256, activation=tf.nn.relu),
+                                    tf.keras.layers.Dense(10, activation=tf.nn.softmax)])
+
+model.compile(optimizer = 'adam',
+              loss = 'sparse_categorical_crossentropy')
+
+model.fit(training_images, training_labels, epochs=30)
+
+model.evaluate(test_images, test_labels)
+
+classifications = model.predict(test_images)
+
+print(classifications[5])
+print(test_labels[5])

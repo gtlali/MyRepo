@@ -1,32 +1,20 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Nov 14 11:07:04 2020
+Created on Wed Jul  8 23:19:19 2020
 
 @author: HY3798
 """
+m, t = 1, 2  # multiple values can be assigned
 
-import tensorflow as tf
-print(tf.__version__)
-
-mnist = tf.keras.datasets.fashion_mnist
-
-(training_images, training_labels) ,  (test_images, test_labels) = mnist.load_data()
-
-training_images = training_images/255.0
-test_images = test_images/255.0
-
-model = tf.keras.models.Sequential([tf.keras.layers.Flatten(),
-                                    tf.keras.layers.Dense(256, activation=tf.nn.relu),
-                                    tf.keras.layers.Dense(10, activation=tf.nn.softmax)])
-
-model.compile(optimizer = 'adam',
-              loss = 'sparse_categorical_crossentropy')
-
-model.fit(training_images, training_labels, epochs=30)
-
-model.evaluate(test_images, test_labels)
-
-classifications = model.predict(test_images)
-
-print(classifications[5])
-print(test_labels[5])
+def my_function(y,r):
+  print("Hello from a my_function") 
+  print(y, r," this method will compute a*c + 10 " )
+  x = lambda a,c : a *c+ 10  
+  print("value of expersion (a*c)+10: ",x(y,r))  
+    
+def my_while(j):
+  print("Hello from a my_while",j) 
+  i = j
+  while i < 6:
+    print(i)
+    i += 1

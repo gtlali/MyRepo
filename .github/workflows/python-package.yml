@@ -38,5 +38,5 @@ jobs:
     - name: test with pytest
       run: |
         pip install -U pytest
-        pytest -k Test_myEx1.py
+        pytest -k test_myEx1.py
    

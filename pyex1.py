@@ -4,6 +4,17 @@ Created on Wed Jul  8 23:19:19 2020
 
 @author: HY3798
 """
+class Person:
+    age=0
+    name=''
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        
+p1 = Person("John", 36)    
+print(p1.name)
+print(p1.age)
+
 m, t = 1, 2  # multiple values can be assigned
 
 def my_function(y,r):

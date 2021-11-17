@@ -8,7 +8,7 @@ dependencies:
   - pip
   # Core scientific python
   - numpy
-  - pyqt  
+ 
   # Plotting
   - matplotlib
   - plotly 

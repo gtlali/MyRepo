@@ -8,16 +8,10 @@ dependencies:
   - pip
   # Core scientific python
   - numpy
-  - pyqt
-  - tqdm
-  - kiwisolver
-  
+  - pyqt  
   # Plotting
   - matplotlib
-  - plotly
-  - seaborn
-
- 
+  - plotly 
   # Natural language processing
   - nltk
   - textblob
